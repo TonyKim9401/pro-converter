@@ -1,23 +1,53 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
 
 function App() {
+  const [inputCode, setInputCode] = useState("");
+  const [outputCode, setOutputCode] = useState("");
+  const [selectedLanguage, setSelectedLanguage] = useState("javascript");
+
+  function handleConvert() {
+    alert("converted!");
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <div
+      style={{
+        display: "flex",
+        justifyContent: "space-around",
+        padding: "20px",
+      }}
+    >
+      <textarea
+        style={{ width: "45%", height: "400px" }}
+        value={inputCode}
+        onChange={(e) => setInputCode(e.target.value)}
+        placeholder="Enter your code here..."
+      />
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <select
+          value={selectedLanguage}
+          onChange={(e) => setSelectedLanguage(e.target.value)}
         >
-          Learn React
-        </a>
-      </header>
+          <option value="javascript">JavaScript</option>
+          <option value="python">Python</option>
+          <option value="java">Java</option>
+          {/* add programming language options */}
+        </select>
+        <button onClick={handleConvert}>Convert</button>
+      </div>
+      <textarea
+        style={{ width: "45%", height: "400px" }}
+        value={outputCode}
+        readOnly
+        placeholder="Converted code will appear here..."
+      />
     </div>
   );
 }
