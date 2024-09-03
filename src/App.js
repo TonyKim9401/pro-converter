@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import CodeConverter from "./components/CodeConverter";
 
 function App() {
   const [inputCode, setInputCode] = useState("");
@@ -40,7 +41,13 @@ function App() {
           <option value="java">Java</option>
           {/* add programming language options */}
         </select>
-        <button onClick={handleConvert}>Convert</button>
+
+        {/* CodeConverter component */}
+        <CodeConverter
+          inputCode={inputCode}
+          selectedLanguage={selectedLanguage}
+          onConvert={(convertedCode) => setOutputCode(convertedCode)}
+        />
       </div>
       <textarea
         style={{ width: "45%", height: "400px" }}
