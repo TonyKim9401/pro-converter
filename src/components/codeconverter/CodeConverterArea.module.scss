@@ -1,0 +1,25 @@
+.converterBox {
+  align-items: center;
+  width: 100%;
+  height: 5%;
+  padding: 10px;
+  border-radius: 12px; // 둥글게 각진 네모
+  border: 2px solid #89c2d9; // 부드러운 하늘색 테두리
+  background-color: #e0f7fa; // 부드러운 하늘색 배경
+  font-size: 16px;
+  color: #003366; // 진한 파랑색으로 텍스트 색상 변경
+  outline: none;
+  cursor: pointer;
+  display: flex; // Flexbox 사용
+  justify-content: center; // 가로 가운데 정렬
+  align-items: center; // 세로 가운데 정렬
+  box-sizing: border-box;
+
+  &:hover {
+    background-color: #bde0fe; // 호버 시 더 짙은 하늘색으로 변경
+  }
+
+  &:focus {
+    border-color: #48cae4; // 포커스 시 진한 하늘색 테두리
+  }
+}

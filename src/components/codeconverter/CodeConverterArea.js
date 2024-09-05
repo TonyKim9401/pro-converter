@@ -1,6 +1,8 @@
 // src/components/CodeConverter.js
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import styles from "./CodeConverterArea.module.scss";
+import LoadingArea from "../loading/LoadingArea";
 
 const CodeConverter = ({ inputCode, selectedLanguage, onConvert }) => {
   const [loading, setLoading] = useState(false);
@@ -69,9 +71,14 @@ const CodeConverter = ({ inputCode, selectedLanguage, onConvert }) => {
   };
 
   return (
-    <div>
-      <button onClick={handleConvert} disabled={loading}>
-        {loading ? "Converting..." : "Convert"}
+    <div className={styles.container}>
+      {loading && <LoadingArea />} {/* Conditionally render LoadingArea */}
+      <button
+        className={styles.converterBox}
+        onClick={handleConvert}
+        disabled={loading}
+      >
+        {loading ? "Converting..." : "Convert Code"}
       </button>
     </div>
   );
