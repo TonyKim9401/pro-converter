@@ -52,7 +52,7 @@ const CodeConverter = ({ inputCode, selectedLanguage, onConvert }) => {
               content: `Convert the following code to ${language}:\n\n${code}`,
             }, // user message
           ],
-          max_tokens: 150,
+          max_tokens: 4096,
           temperature: 0.7,
         },
         {
@@ -62,7 +62,6 @@ const CodeConverter = ({ inputCode, selectedLanguage, onConvert }) => {
           },
         }
       );
-
       return response.data.choices[0].message.content.trim();
     } catch (error) {
       console.error("Error converting code:", error);

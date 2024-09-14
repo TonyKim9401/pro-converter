@@ -3,12 +3,15 @@ import styles from "./OutputArea.module.scss";
 
 function OutputCode({ outputCode }) {
   return (
-    <textarea
-      className={styles.OutputCode}
-      value={outputCode}
-      readOnly
-      placeholder="Converted code will appear here..."
-    />
+    <div className={styles.container}>
+      <div className={styles.charCount}></div>
+      <textarea
+        className={styles.textarea}
+        value={outputCode}
+        readOnly
+        placeholder="Converted code will appear here..."
+      />
+    </div>
   );
 }
 
